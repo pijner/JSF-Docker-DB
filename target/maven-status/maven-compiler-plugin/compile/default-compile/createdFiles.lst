@@ -1,0 +1,4 @@
+com\pijner\dockerdemo\connector\DBConnector.class
+com\pijner\dockerdemo\resources\JavaEE8Resource.class
+com\pijner\dockerdemo\connector\Bean.class
+com\pijner\dockerdemo\JAXRSConfiguration.class
