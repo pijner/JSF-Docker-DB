@@ -1,16 +1,6 @@
 version: "3.7"
 
 services:
-  app:
-    image: payara/server-full
-    container_name: payaraweb
-    hostname: payaraweb
-    ports:
-      - 8080:8080
-    volumes:
-      - ./target:/opt/payara/deployments
-
-  
   mysql:
     image: mysql:8.0
     container_name: mysqlserver
@@ -21,4 +11,16 @@ services:
       MYSQL_ROOT_PASSWORD: password123
     volumes:
       - ./sql_script:/docker-entrypoint-initdb.d
+  
+  
+  app:
+    image: payara/server-full
+    container_name: payaraweb
+    hostname: payaraweb
+    ports:
+      - 8080:8080
+    volumes:
+      - ./target/DockerDemo-1.0.war:/opt/payara/deployments/DockerDemo-1.0.war
+
+  
       

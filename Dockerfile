@@ -1,5 +1,5 @@
 # Base image to build this image on
-# FROM payara/server-full
+FROM payara/server-full
 
 # copy jar file to $DEPLOY_DIR
 # $DEPLOY_DIR is where payara looks for applications

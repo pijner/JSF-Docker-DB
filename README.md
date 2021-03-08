@@ -33,7 +33,7 @@ Following the pattern of this course, we'll be setting up a web application in N
 ## Setting up MySQL
 - Once you have docker set up, fire up a terminal and run the following command
         
-        $  docker run -d --network web-network --network-alias mysql  --name mysqlserver -e MYSQL_ROOT_PASSWORD=password123 -p 3305:3306 mysql:8.0
+        $  docker run -d --network web-network --network-alias mysqlserver  --name mysqlserver -e MYSQL_ROOT_PASSWORD=password123 -p 3305:3306 mysql:8.0
         
     The docker run command will search for an existing copy of the image specified and create a container with that. If it isn't on your machine, it will get it from Docker Hub. 
 
@@ -82,3 +82,36 @@ Following the pattern of this course, we'll be setting up a web application in N
         $ docker run --network web-network --name payaraweb -p 8080:8080 demoimg
     
     This will create a container named payaraweb with the image we just created and add it to the web-network.
+
+
+## Using docker compose
+Instead of using the complicated process above everytime you want to test something, it is much easier to have a file with all the set-up instructions. Docker compose makes it much easier to re-create multi-containered applications by defining the containers/services in a YAML file. In our case, we have `docker-compose.yml` in the project directory.
+We define the two containers we are interested in using with out application along with the files to initialize the servers with our data.
+
+All that needs to be done is run the following command:
+
+    $ docker-compose up
+
+Once the servers are up and running, open a browser tab and navigate to `http://localhost:8080/DockerDemo-1.0/`. Note that we go to port `8080` as that's where we mapped the HTTP port for payaraweb in the YAML file.
+
+You can hit `ctrl + c` to stop the containers or run the following in the project directory
+
+    $ docker-compose down
+
+
+## Clean up
+- To stop any container:
+
+        $ docker container stop <container-name>
+
+- To remove containers from your computer:
+  
+        $ docker rm <container-name>
+
+- To remove an image from your computer:
+  
+        $ docker rmi <image-name>
+
+- To remove docker network from your computer:
+    
+        $ docker network rm <network-name>

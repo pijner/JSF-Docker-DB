@@ -34,8 +34,8 @@ public final class DBConnector {
      * Class constructor - sets up MySQL environment variables and initialized data source
      */
     public DBConnector(){
-        this.serverName = "localhost";
-        this.portNumber = 3305;
+        this.serverName = "mysqlserver";
+        this.portNumber = 3306;
         this.user = "root";
         this.password = "password123";
         this.databaseName = "demoDB";
@@ -48,12 +48,19 @@ public final class DBConnector {
     public void connectDataSource(){
         dataSource = new MysqlDataSource();
         
+       // use this method if you have configured client certificates and 
+       // configured MySQL for SSL
 //        dataSource.setServerName(this.serverName);
 //        dataSource.setPortNumber(this.portNumber);
 //        dataSource.setDatabaseName(this.databaseName);
         
         // Alternate method to connect
-         dataSource.setURL("jdbc:mysql://mysqlserver:3306/demoDB?allowPublicKeyRetrieval=true&useSSL=false");
+        String url = String.format(
+                "jdbc:mysql://%s:%d/%s?allowPublicKeyRetrieval=true&useSSL=false",
+                this.serverName,
+                this.portNumber,
+                this.databaseName);
+        dataSource.setURL(url);
 
         dataSource.setUser(this.user);
         dataSource.setPassword(this.password);
