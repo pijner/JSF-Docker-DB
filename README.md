@@ -17,6 +17,7 @@ For Linux, you need to install Docker Engine and Docker Compose seperately (and 
 - Linux
   - [Docker engine](https://docs.docker.com/engine/install/#server)
   - [Docker compose](https://docs.docker.com/compose/install/#linux)
+  - **Note**: docker commands on linux will require root privilege 
 
 
 ## Setting up the web application
