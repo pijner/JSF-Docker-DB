@@ -1,9 +1,9 @@
-# DockerDemo
- A sample project to demonstrate the use of Docker containers with JSF and MySQL
+# JSF-Docker-DB
+ A template project to demonstrate the use of Docker containers with JSF and MySQL
 
 # Getting started with Docker for JSF
 
-For this demo, we will be attempting to use a container running a Payara application server to host our web application and another container to host our databse server. I'm using MySQL as the database server, but this should be possible with containers for MariaDB, MongoDB, etc. See [Docker hub](https://hub.docker.com/) for container images and instructions on setting them up.
+For this template, I will be attempting to use a container running a Payara application server to host our web application and another container to host our databse server. I'm using MySQL as the database server, but this should be possible with containers for MariaDB, MongoDB, etc. See [Docker hub](https://hub.docker.com/) for container images and instructions on setting them up.
 
 
 ## Get docker
